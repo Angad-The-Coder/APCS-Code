@@ -57,7 +57,6 @@ public class JumpThoseHurdles {
 	 * back to the hurdle and is facing the next one.
 	 */
 	private void clearHurdle(int numToDescend) {
-		// TODO Auto-generated method stub
 		hurdler.move();
 		hurdler.move();
 		turnRight(hurdler);

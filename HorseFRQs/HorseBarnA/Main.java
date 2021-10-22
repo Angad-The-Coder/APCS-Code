@@ -3,15 +3,19 @@ class Main {
         String[] spaces = {"Trigger", null, "Silver", "Lady", null, "Patches", "Duke"};
 
         // Should be 2.
-        System.out
-                .println("Silver appears in stall index " + findHorseSpace(spaces, "Silver") + ".");
+        System.out.println(
+            "Silver appears in stall index " + findHorseSpace(spaces, "Silver") + "."
+        );
 
         // Should be 0.
         System.out.println(
-                "Trigger appears in stall index " + findHorseSpace(spaces, "Trigger") + ".");
+            "Trigger appears in stall index " + findHorseSpace(spaces, "Trigger") + "."
+        );
 
         // Should be -1.
-        System.out.println("Bubba appears in stall index " + findHorseSpace(spaces, "Bubba") + ".");
+        System.out.println(
+            "Bubba appears in stall index " + findHorseSpace(spaces, "Bubba") + "."
+        );
     }
 
     /**
