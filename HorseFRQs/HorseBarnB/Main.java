@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 class Main {
     public static void main(String[] args) {
-        String[] spaces1 = { "Trigger", null, "Silver", "Lady", null, "Patches", "Duke" };
+        String[] spaces1 = {"Trigger", null, "Silver", "Lady", null, "Patches", "Duke"};
 
         consolidate(spaces1);
 
@@ -10,10 +10,9 @@ class Main {
     }
 
     /**
-     * Consolidates the barn by moving horses so that the horses are in adjacent
-     * spaces, starting at index 0, with no empty space between any two horses.
-     * Postcondition: The order of the horses is the same as before the
-     * consolidation.
+     * Consolidates the barn by moving horses so that the horses are in adjacent spaces, starting at
+     * index 0, with no empty space between any two horses. Postcondition: The order of the horses
+     * is the same as before the consolidation.
      */
     public static void consolidate(String[] spaces) {
         int consolidatedHorses = 0;
