@@ -25,6 +25,8 @@ class Main {
     // print the contents of nums
     public void print(int[] nums) {
         String arrayStr = "[";
+        // Go through nums, adding each element to arrayStr with an extra comma if the element is
+        // not the last one in the array:
         for (int i = 0; i < nums.length; i++) {
             arrayStr += nums[i];
             if (i != nums.length - 1) {
@@ -32,7 +34,7 @@ class Main {
             }
         }
         arrayStr += "]";
-
+        // Since this is a void method, simply print out arrayStr without returning anything
         System.out.println(arrayStr);
     }
 
@@ -43,22 +45,21 @@ class Main {
         for (int i = 0; i < n; i++) {
             // generate a random number between high and low, inclusive:
             int randomNum = low + (int) (Math.random() * (high - low) + 1);
-            // add the number to arr:
             arr[i] = randomNum;
         }
-
         return arr;
     }
 
     // returns the min element
     private int findMin(int[] nums) {
+        // give min an initial value of the first element in the nums array:
         int min = nums[0];
+        // traverse through nums, updating the value of min if a smaller element is found:
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < min) {
                 min = nums[i];
             }
         }
-
         return min;
     }
 
@@ -82,14 +83,16 @@ class Main {
     private int[] removeElement(int index, int[] arr) {
         int[] newArr = new int[arr.length - 1];
         for (int i = 0; i < arr.length; i++) {
+            // if we haven't yet reached the index we're excluding, newArr will be a copy of arr:
             if (i < index) {
                 newArr[i] = arr[i];
             }
+            // if we have passed the index we're excluding, account for its exclusion by offsetting
+            // new additions to newArr by 1:
             if (i > index) {
                 newArr[i - 1] = arr[i];
             }
         }
-
         return newArr;
     }
 
@@ -108,7 +111,8 @@ class Main {
             int maxInd = findMax(nums);
             int maxNum = nums[maxInd];
             nums = removeElement(maxInd, nums);
-
+            // since we decrement the length of nums by 1 each time we take its maxNum as shown
+            // above, we can use its length as the index to place new elements in newArr:
             newArr[nums.length] = maxNum;
         }
 
