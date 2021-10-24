@@ -12,13 +12,9 @@ public class SumDouble {
 
     // Solution to prompt:
     public int sumDouble(int a, int b) {
-        return 0;
-    }
-
-    // Method to test our solution on CodingBat's test cases:
-    public void test() {
-        System.out.println("sumDouble(1, 2) → " + sumDouble(1, 2));
-        System.out.println("sumDouble(3, 2) → " + sumDouble(3, 2));
-        System.out.println("sumDouble(2, 2) → " + sumDouble(2, 2));
+        if (a == b) {
+            return 2 * (a + b);
+        }
+        return a + b;
     }
 }

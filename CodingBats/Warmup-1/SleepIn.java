@@ -15,11 +15,4 @@ public class SleepIn {
     public boolean sleepIn(boolean weekday, boolean vacation) {
         return (!weekday || vacation);
     }
-
-    // Method to test our solution on CodingBat's test cases:
-    public void test() {
-        System.out.println("sleepIn(false, false) --> " + sleepIn(false, false));
-        System.out.println("sleepIn(true, false) --> " + sleepIn(true, false));
-        System.out.println("sleepIn(false, true) --> " + sleepIn(false, false));
-    }
 }
