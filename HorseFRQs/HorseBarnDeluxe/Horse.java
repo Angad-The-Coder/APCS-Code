@@ -39,20 +39,9 @@ public class Horse {
     }
 
     // Setters:
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    public void setBirth(Date newBirth) {
-        this.birth = newBirth;
-    }
-
+    // (weight and rideability are the only properties that will change)
     public void setWeight(int newWeight) {
         this.weight = newWeight;
-    }
-
-    public void setSire(Horse newSire) {
-        this.sire = newSire;
     }
 
     public void setRideability(boolean newRideability) {
