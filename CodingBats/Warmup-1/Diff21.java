@@ -13,6 +13,7 @@ public class Diff21 {
     // Solution to prompt:
     public int diff21(int n) {
         if (n <= 21) {
+            // since n <= 21, 21 - n will not be negative:
             return 21 - n;
         }
         return 2 * (n - 21);

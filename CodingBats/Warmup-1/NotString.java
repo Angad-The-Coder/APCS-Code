@@ -13,6 +13,7 @@ public class NotString {
 
     // Solution to prompt:
     public String notString(String str) {
+        // check str's length is >= 3 to prevent an out of bounds error:
         if (str.length() >= 3 && str.substring(0, 3).equals("not")) {
             return str;
         }
