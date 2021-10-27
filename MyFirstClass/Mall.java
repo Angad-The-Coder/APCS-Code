@@ -20,7 +20,37 @@ private class Store {
   private String name;
   private double rating;
   private Item[] items;
-  private 
+  public Store(String name, Item[] items) {
+    this.name = name;
+    this.items = items;
+  }
+  public Store(String name, Item[] items, double rating) {
+    this.name = name;
+    this.items = items;
+    this.rating = rating;
+  }
+  
+  // Getters:
+  public String getName() {
+    return this.name;
+  }
+  public double rating() {
+    return this.rating;
+  }
+  public Item[] getItems() {
+    return this.items;
+  }
+
+  // Setters:
+  public void setRating(double newRating) {
+    this.rating = newRating;
+  }
+  public void setItems(Item[] newItems) {
+    this.items = newItems;
+  }
+  public void addItem(Item[] newItem) {
+    
+  }
 }
 
 private class Item {
@@ -50,6 +80,26 @@ private class Item {
   // Getters:
   public String getName() {
     return this.name;
+  }
+  public double getPrice() {
+    return this.price;
+  }
+  public int getNumberInStock() {
+    return this.numberInStock;
+  }
+  public double getRating() {
+    return this.rating;
+  }
+
+  // Setters:
+  public void setPrice(int newPrice) {
+    this.price = newPrice;
+  }
+  public void setNumberInStock(int newNumberInStock) {
+    this.numberInStock = newNumberInStock;
+  }
+  public void setRating(double newRating) {
+    this.rating = newRating;
   }
 }
 //Make some getters and setters
