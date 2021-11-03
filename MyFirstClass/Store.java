@@ -65,15 +65,12 @@ class Store {
 
     // toString method:
     public String toString() {
-        return "The " + this.getName() + " Store:\n" +
-            "** Open from "+ this.getOpeningTime().toString() + " to " + this.getClosingTime().toString() + " **";
-    }
-
-    public String itemsInfo() {
-        String itemsStr = "Items at the " + this.getName() + " Store:\n";
+        String storeStr = this.getName() + "\n" +
+            "** Open from "+ this.getOpeningTime().toString() + " to " + this.getClosingTime().toString() + " **\n" + 
+            "\nItems:\n";
         for (int i = 0; i < this.getItems().length; i++) {
-            itemsStr += this.getItems()[i].toString();
+            storeStr += this.getItems()[i].toString();
         }
-        return itemsStr;
+        return storeStr;
     }
 }

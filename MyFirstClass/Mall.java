@@ -7,16 +7,16 @@ class Mall {
 
     /* Constructors: */
     public Mall(String name, String address) {
-        this.setName(name);
-        this.setAddress(address);
+        this.name = name;
+        this.address = address;
         // initialize mall with no stores or restaurants:
         this.setStores(new Store[0]);
         this.setFoodCourt(new Restaurant[0]);
     }
 
     public Mall(String name, String address, Store[] stores, Restaurant[] foodCourt) {
-        this.setName(name);
-        this.setAddress(address);
+        this.name = name;
+        this.address = address;
         this.setStores(stores);
         this.setFoodCourt(foodCourt);
     }
@@ -39,13 +39,6 @@ class Mall {
     }
 
     /* Setters: */
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    public void setAddress(String newAddress) {
-        this.address = newAddress;
-    }
 
     public void setStores(Store[] newStores) {
         this.stores = newStores;
@@ -77,11 +70,11 @@ class Mall {
 
     /* toString */
     public String toString() {
-        return "The " + this.getName() + " Mall:\n" + "** Located at " + this.getAddress() + " **";
+        return this.getName() + "\n" + "** Located at " + this.getAddress() + " **";
     }
 
     public String storeInfo() {
-        String storesStr = "The stores at the " + this.getName() + " Mall:\n";
+        String storesStr = "The stores at " + this.getName() + ":\n";
         for (int i = 0; i < this.getStores().length; i++) {
             storesStr += this.getStores()[i].toString();
         }
@@ -89,7 +82,7 @@ class Mall {
     }
 
     public String foodCourtInfo() {
-        String foodCourtStr = "The food court at the " + this.getName() + " Mall:\n";
+        String foodCourtStr = "The food court at the " + this.getName() + ":\n";
         for (int i = 0; i < this.getFoodCourt().length; i++) {
             foodCourtStr += this.getFoodCourt()[i].toString();
         }

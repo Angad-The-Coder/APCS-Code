@@ -74,5 +74,35 @@ class Food {
     }
 
     /* toString */
+    public String toString() {
+        // prepare all parameters as strings:
+        String nameStr = this.getName();
+        String isVegStr = this.getIsVeg() ? "Vegetarian" : "Non-Vegetarian";
+        String priceStr = String.format("$%,.2f", this.getPrice());
+        String ratingStr = "★".repeat(this.getFiveStarRating()) +
+                           "☆".repeat(5 - this.getFiveStarRating());
+        String caloriesStr = Integer.toString(this.getCalories());
 
+        // find parameter with max length to print them all out in a fixed
+        // width column:
+        int maxLength = nameStr.length();
+        if (isVegStr.length() > maxLength) maxLength = isVegStr.length();
+        // each row with these parameters will have a 11-character long label:
+        if (priceStr.length() + 11 > maxLength) maxLength = priceStr.length() + 11;
+        if (ratingStr.length() + 11 > maxLength) maxLength = ratingStr.length() + 11;
+        if (caloriesStr.length() + 11 > maxLength) maxLength = caloriesStr.length() + 11;
+
+        String singleColFormat = "|%-" + maxLength + "s|";
+        String doubleColFormat = "|%-10s %"+(maxLength-11)+"s|";
+
+        return
+            "-".repeat(maxLength + 2) + "\n" +
+            String.format(singleColFormat, nameStr) + "\n" +
+            String.format(singleColFormat, isVegStr) + "\n" +
+            "|"+"-".repeat(maxLength) + "|\n" +
+            String.format(doubleColFormat, "Price", priceStr) + "\n" +
+            String.format(doubleColFormat, "Rating", ratingStr) + "\n" +
+            String.format(doubleColFormat, "Calories", caloriesStr) + "\n" +
+            "-".repeat(maxLength + 2) + "\n";
+    }
 }

@@ -21,11 +21,13 @@ public class Main {
 
         System.out.println("What should be the name of a store at the mall?");
         String storeName = input.nextLine();
-        System.out
-                .println("When should the store open?\n(enter times in military format (hh:mm)): ");
+        System.out.println(
+            "When should the store open?\n(enter times in military format (hh:mm)): "
+        );
         LocalTime storeOpeningTime = LocalTime.parse(input.nextLine());
         System.out.println(
-                "When should the store close?\n(enter times in military format (hh:mm)): ");
+            "When should the store close?\n(enter times in military format (hh:mm)):"
+        );
         LocalTime storeClosingTime = LocalTime.parse(input.nextLine());
 
         Store userStore = new Store(storeName, storeOpeningTime, storeClosingTime);
@@ -51,7 +53,6 @@ public class Main {
 
         System.out.println(userMall);
         System.out.println("\n" + userMall.storeInfo());
-        System.out.println("\n" + userMall.getStores()[0].itemsInfo());
     }
 
     public static void fileResponseMall() {
@@ -87,7 +88,7 @@ public class Main {
 
             System.out.println(userMall);
             System.out.println("\n" + userMall.storeInfo());
-            System.out.println("\n" + userMall.getStores()[0].itemsInfo());
+            
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
