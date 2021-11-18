@@ -3,8 +3,8 @@ import core.data.*;
 public class ProcessWeatherStationObject {
    public static void main(String[] args) {
       ProcessWeatherStationObject pwo = new ProcessWeatherStationObject();
-      pwo.test3ParamConstructor();
-      // pwo.test6ParamConstructor();
+      // pwo.test3ParamConstructor();
+      pwo.test6ParamConstructor();
    }
 
    private void test3ParamConstructor() {
@@ -14,7 +14,7 @@ public class ProcessWeatherStationObject {
       ds1.load();
       ds1.printUsageString();
 
-      Observation ob1 = ds1.fetch("Observation", "weather", "temp_f", "wind_degrees");
+      Observation ob1 = ds1.fetch("Observation", "location", "temp_f", "wind_mph");
       System.out.println(id1 + ": " + ob1);
 
       String id2 = "KSAV";
@@ -22,7 +22,7 @@ public class ProcessWeatherStationObject {
       ds2.setCacheTimeout(15 * 60);
       ds2.load();
 
-      Observation ob2 = ds2.fetch("Observation", "weather", "temp_f", "wind_degrees");
+      Observation ob2 = ds2.fetch("Observation", "location", "temp_f", "wind_mph");
       System.out.println(id2 + ": " + ob2);
 
       if (ob1.colderThan(ob2)) {
@@ -57,7 +57,7 @@ public class ProcessWeatherStationObject {
       // I added an argument. You need to add two more arguments for the line below.
       // Finally, add another constructor in the Observation class below so that the line below
       // will execute.
-      Observation ob1 = ds1.fetch("Observation", "weather", "temp_f", "wind_degrees", "dewpoint_f");
+      Observation ob1 = ds1.fetch("Observation", "location", "temp_f", "wind_mph", "weather", "dewpoint_f", "relative_humidity");
       System.out.println(id1 + ": " + ob1);
 
       String id2 = "KSAV";
@@ -65,10 +65,21 @@ public class ProcessWeatherStationObject {
       ds2.setCacheTimeout(15 * 60);
       ds2.load();
 
-      Observation ob2 = ds2.fetch("Observation", "weather", "temp_f", "wind_degrees", "dewpoint_f");
+      Observation ob2 = ds2.fetch("Observation", "location", "temp_f", "wind_mph", "weather", "dewpoint_f", "relative_humidity");
       System.out.println(id2 + ": " + ob2);
 
       // Now compare based on the new attributes that we added
+      if (ob1.moreHumidThan(ob2)) {
+         System.out.println("More humid at " + id1);
+      } else {
+         System.out.println("More humid at " + id2);
+      }
+      if (ob1.higherDewPointThan(ob2)) {
+         System.out.println(id1 + " has a higher dew point.");
+      } else {
+         System.out.println(id2 + " has a higher dew point.");
+      }
+
    }
 
 }
