@@ -15,7 +15,7 @@ class Main {
     frame.show();
 
     ProcessWeatherStations_1.main(args);
-    //ProcessWeatherStationObject.main(args);
-    //ProcessWeatherStationsList.main(args);
+    // ProcessWeatherStationObject.main(args);
+    // ProcessWeatherStationsList.main(args);
   }
 }

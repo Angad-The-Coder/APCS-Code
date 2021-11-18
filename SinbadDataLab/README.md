@@ -10,9 +10,9 @@ The `promptUserAndRetrieve` method which prompts the user for a weather station 
 ## Project 2
 For this problem, you will make modifications to the `Observation` class. The `Observation` class is intended to encapsulate the attributes of a weather observation. Initially it has temperature, wind direction and description attributes. When you run this project, initially, two objects are instantiated, but the class doesn’t work correctly. You need to finish the constructor, `colderThan`, `compareTo` and `toString` methods. After solving that, move on to part two, the `test6ParamConstructor` which requires you to modify the `Observation` class so that you can construct an `Observation` object with 6 parameters. After adding a second constructor, add some getters so that you can compare `Observation` objects based on the new attributes. Make sure to update your `toString` method so that it is appropriate for the latest version of the `Observation` class. Use the 
 
-`ProcessWeatherStation_Object` class and the `Observation` class.
+`ProcessWeatherStationObject` class and the `Observation` class.
 
 ## Project 3
 For this problem you will make changes to the `WeatherStation` class. You need to add a state attribute, as well as other attributes (like longitude, latitude, etc. things that a weather station would have). After adding this, input all the weather stations and find the number of stations in a user prompted state. Then prompt the user for a state then find the station with the largest latitude or longitude or…
 
-Use `ProcessWeatherStation_List` class and `WeatherStation` class.
+Use `ProcessWeatherStationList` class and `WeatherStation` class.
