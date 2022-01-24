@@ -1,0 +1,15 @@
+# Bejewled
+
+## Game Directions
+Bejeweled is a game that looks for 3 or more in a row of jewels that are the same. All jewels that are part of a 3 or more in a row are removed from the grid. The more jewels that are removed the higher that move is worth. You make 3 or more in a row by swapping jewels with other jewels horizontally or vertically. If the swap does not make a three in a row, then the jewels are swapped back.
+
+## Instructions
+You should start by making more `Jewel` subclasses. I have provided the `Emerald` class which extends `Jewel` as a model. You need orange, purple, blue, red, white and yellow subclasses of `Jewel`. You will also need to find the bounding rectangle of the subimage of the sprite sheet to “cut” out the pic that matches each subclass of jewel. Check out the `Emerald` class for an example. If you are going to animate your Jewels, you will cut out more images from the spritesheet.
+
+Once you have made the `Jewel` subclasses, now it’s time to add your new jewels to the grid. You will need to make changes to the `randomJewel` method in the `Grid` class. Then you will need an appropriate refill method which finds any empty spaces and fills them with new jewels.
+
+Once you can get jewels to move around, you need to check for 3 or more in a rows. Jewels need to be the same color, so maybe you can use that attribute to determine equality (by overriding the `equals` method). Do not remove the jewels that make up 3 in a row, because you need to check vertically and horizontally for matches and some jewels might be in both. If you were to take them out, you would have a harder time finding all matches. Rather than removing them, you need to remember the locations of the jewels. A list would be a great choice for this, because you can add them as you find them! This might be a great time to work on the `Location` class, which encapsulates the row and column in a 2D array.
+
+When you have a full grid of jewels, you should work on swapping jewels. Don’t worry about the rules, yet. In order to get swapping to work, you need to turn the `MouseEvent` into a row and column (remember the y-coordinate affects the row and the x-coordinate affects the column). Look at the `Draw` method in the `Jewel` class for help in determining how to turn the coordinates into a row and column. You will also need to know which click it is in the sequence. The first click selects the first jewel (it would be nice if the selected jewel were drawn a little differently to indicate to the user which Jewel they selected). The second click selects the second Jewel to be swapped with the first. The jewels should be beside each other or one above the other for a valid move.
+
+Now that you can store the Locations of the 3 in a row, it’s time to remove those Jewels and drop any Jewels in the grid that can fall. Once all the Jewels have been dropped, we should refill empty spots with new Jewels. These empty spots should all be at the top of the grid. The score should be updated around now.
