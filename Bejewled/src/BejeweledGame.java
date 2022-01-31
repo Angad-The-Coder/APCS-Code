@@ -1,5 +1,3 @@
-// TODO: Animate dropping/swapping
-
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.*;
@@ -72,9 +70,9 @@ public class BejeweledGame {
         timeLabel = new JLabel("Seconds left: " + (int) secondsLeft);
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setBackground(Color.BLACK);
-				pointsLabel = new JLabel("Points: 0");
-				pointsLabel.setForeground(Color.WHITE);
-				pointsLabel.setForeground(Color.BLACK);
+        pointsLabel = new JLabel("Points: 0");
+        pointsLabel.setForeground(Color.WHITE);
+        pointsLabel.setForeground(Color.BLACK);
         panel = new JPanel() {
             @Override
             public void paintComponent(Graphics g) {
@@ -112,7 +110,6 @@ public class BejeweledGame {
                 decrementTime();
             }
         }, 1000, 1000);
-        // add delay of 1 second, and run once every second
     }
 
     protected void clickedAt(MouseEvent me) {

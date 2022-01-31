@@ -11,21 +11,20 @@ public class BejeweledGrid {
     public Jewel[][] jewels;
 
     /**
-     * Offsets for drawing the grid of Jewels. The entire grid will
-     * be shifted to the right OFFSET_X and down OFFSET_Y
+     * Offsets for drawing the grid of Jewels. The entire grid will be shifted to the right OFFSET_X
+     * and down OFFSET_Y
      */
     public static final int OFFSET_X = 40, OFFSET_Y = 20, BOARD_WIDTH = 10, BOARD_HEIGHT = 10;
     private Location selectedLocation;
     private long lastClearMillis = 0;
     private int comboLength;
     private static final int COMBO_THRESHOLD_MILLIS = 1600;
-    // This can play sounds! I have loaded up the sounds below
     private SoundPlayer sp = new SoundPlayer();
     private static final int NUM_TYPES = 7;
-    // private int numdraws = 0;
 
     public BejeweledGrid() {
-        jewels = new Jewel[BOARD_HEIGHT][BOARD_WIDTH];// just for testing, you will change dimensions
+        jewels = new Jewel[BOARD_HEIGHT][BOARD_WIDTH];// just for testing, you will change
+                                                      // dimensions
         this.refill();// refill method fills empty spaces
         ArrayList<String> fileList = new ArrayList<String>();
         String root = "../sounds/";
@@ -47,8 +46,8 @@ public class BejeweledGrid {
     }
 
     /**
-     * directs each Jewel to draw itself. The Jewel knows its row
-     * and column and can ask the grid for the offset info
+     * directs each Jewel to draw itself. The Jewel knows its row and column and can ask the grid
+     * for the offset info
      * 
      * @param g Graphics context onto which the Jewels will draw themselves
      */
@@ -68,8 +67,8 @@ public class BejeweledGrid {
     }
 
     /**
-     * swaps the Jewels at the specified locations. Also must
-     * tell the Jewels to set their rows and cols appropriately.
+     * swaps the Jewels at the specified locations. Also must tell the Jewels to set their rows and
+     * cols appropriately.
      * 
      * @param r1 row of Jewel 1
      * @param c1 col of Jewel 1
@@ -84,9 +83,8 @@ public class BejeweledGrid {
     }
 
     /**
-     * Creates an ArrayList<Jewel> of all Jewels Locations that are part of a
-     * three-in-a-row. The same Jewel Location may appear in the List more than
-     * once.
+     * Creates an ArrayList<Jewel> of all Jewels Locations that are part of a three-in-a-row. The
+     * same Jewel Location may appear in the List more than once.
      * 
      * @return
      */
@@ -98,8 +96,8 @@ public class BejeweledGrid {
 
     /**
      * 
-     * @return returns an ArrayList of Jewels that make up three or more in
-     *         a row vertically or an empty list if fewer than 3 in a row exist
+     * @return returns an ArrayList of Jewels that make up three or more in a row vertically or an
+     *         empty list if fewer than 3 in a row exist
      */
     private ArrayList<Location> _3InARowVert() {
         // using hashset to make sure there are no duplicates
@@ -121,8 +119,8 @@ public class BejeweledGrid {
     }
 
     /**
-     * @return returns an ArrayList of Jewels that make up three or more in
-     *         a row horizontally or an empty list if fewer than 3 in a row exist
+     * @return returns an ArrayList of Jewels that make up three or more in a row horizontally or an
+     *         empty list if fewer than 3 in a row exist
      */
     private ArrayList<Location> _3InARowHor() {
         // using hashset to make sure there are no duplicates
@@ -144,22 +142,15 @@ public class BejeweledGrid {
     }
 
     /**
-     * This method drops all Jewels that should drop...
-     * Basically, any Jewel that has no Jewel below it needs to
-     * be in a higher row. Lots of ways to approach this.
-     * One possible algorithm:
-     * 1. Start at bottom row. If nothing there (null) then copy the jewel above it
-     * into this location and delete the jewel above it (set to null).
-     * 2. Do this for every location in this row.
-     * 3. After this row is done, move to a higher (smaller indexed) row
-     * 4. If any jewels moved down (a non-null moved to a null location), then there
-     * may be more jewels that need to be dropped (think about a 3-in-a-row
-     * vertical).
-     * So a good strategy might be count the number that moved, if that number is
-     * greater
-     * than 0, then drop again (recursive). This is costly, but some might find it
-     * easier than a
-     * nested loop that is 3 layers deep.
+     * This method drops all Jewels that should drop... Basically, any Jewel that has no Jewel below
+     * it needs to be in a higher row. Lots of ways to approach this. One possible algorithm: 1.
+     * Start at bottom row. If nothing there (null) then copy the jewel above it into this location
+     * and delete the jewel above it (set to null). 2. Do this for every location in this row. 3.
+     * After this row is done, move to a higher (smaller indexed) row 4. If any jewels moved down (a
+     * non-null moved to a null location), then there may be more jewels that need to be dropped
+     * (think about a 3-in-a-row vertical). So a good strategy might be count the number that moved,
+     * if that number is greater than 0, then drop again (recursive). This is costly, but some might
+     * find it easier than a nested loop that is 3 layers deep.
      */
     public void drop() {
         for (int i = jewels.length - 1; i > 0; i--) {
@@ -185,8 +176,8 @@ public class BejeweledGrid {
                     continue;
                 Jewel filled = randomJewel();
                 // TODO: make readable/better
-								// all of this just makes sure the generated board
-								// doesn't contain 3 in a rows when refilling
+                // all of this just makes sure the generated board
+                // doesn't contain 3 in a rows when refilling
                 if (x != 0) {
                     Jewel left = jewels[i][x - 1];
                     if (i == 0) {
@@ -212,8 +203,7 @@ public class BejeweledGrid {
     }
 
     /**
-     * Generates a random Jewel that will have its starting location
-     * at the specified row and col.
+     * Generates a random Jewel that will have its starting location at the specified row and col.
      * 
      * @param r row where the Jewel will be placed
      * @param c col where the Jewel will be placed
@@ -240,11 +230,10 @@ public class BejeweledGrid {
     }
 
     /**
-     * This method is called by the game when a click has been made
-     * on the panel. Must determine if the click makes sense (is it
-     * a valid location, is there a Jewel at the location, can that
-     * Jewel be clicked). If it is the first click, then note it and
-     * the next click will attempt a move (maybe).
+     * This method is called by the game when a click has been made on the panel. Must determine if
+     * the click makes sense (is it a valid location, is there a Jewel at the location, can that
+     * Jewel be clicked). If it is the first click, then note it and the next click will attempt a
+     * move (maybe).
      * 
      * @param me
      */
@@ -280,10 +269,8 @@ public class BejeweledGrid {
         int gemsCleared = 0;
         int row = (me.getY() - OFFSET_Y) / Jewel.SQUARE_SIZE;
         int col = (me.getX() - OFFSET_X) / Jewel.SQUARE_SIZE;
-        // make sure click within board restraints
         if (row < 0 || row >= BOARD_HEIGHT || col < 0 || col >= BOARD_WIDTH)
             return 0;
-        // checks if click is "first" click
         if (selectedLocation == null) {
             selectedLocation = new Location(row, col);
             jewels[row][col].selected = true;
@@ -291,7 +278,6 @@ public class BejeweledGrid {
             int selectedRow = selectedLocation.getRow();
             int selectedCol = selectedLocation.getCol();
             jewels[selectedRow][selectedCol].selected = false;
-            // have to use XOR to make sure not diagonal
             if (Math.abs(selectedRow - row) == 1 ^ Math.abs(selectedCol - col) == 1) {
                 swap(row, col, selectedRow, selectedCol);
                 ArrayList<Location> matches = _3InARows();
@@ -301,7 +287,6 @@ public class BejeweledGrid {
                     sp.play(0);
                     return 0;
                 }
-                // Accounts for refilled board cointaing 3 in a rows
                 while (matches.size() != 0) {
                     delete(matches);
                     drop();

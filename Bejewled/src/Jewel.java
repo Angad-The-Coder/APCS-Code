@@ -6,17 +6,16 @@ import javax.imageio.ImageIO;
 
 public abstract class Jewel {
     /**
-     * This spritesheet has all the images in the game. Each subclass
-     * of Jewel, will use the spritesheet to open a subimage to be shared
-     * by all instances of that subclass. See Emerald for example.
+     * This spritesheet has all the images in the game. Each subclass of Jewel, will use the
+     * spritesheet to open a subimage to be shared by all instances of that subclass. See Emerald
+     * for example.
      */
     private static Image spriteSheet;
     public static final int ANIMATION_FRAMES = 14;
     /** standardize the size of every Jewel */
     public static final int SQUARE_SIZE = 52;
     /**
-     * Color of this Jewel. If another Jewel has the same Color
-     * then they are of the same type
+     * Color of this Jewel. If another Jewel has the same Color then they are of the same type
      */
     private Color color;
     public Image[] images;
@@ -27,13 +26,12 @@ public abstract class Jewel {
         // this is an example of one constructor calling another.
         // Best practices would have you write any code once. NEVER copy code.
         // If you are copying code, you are copying bugs!
-        this(c, new Image[] { i });
+        this(c, new Image[] {i});
     }
 
     /**
-     * This constructor inputs an array of Images so that you
-     * can animate your Jewel. You will have to think about
-     * how you plan on animating.
+     * This constructor inputs an array of Images so that you can animate your Jewel. You will have
+     * to think about how you plan on animating.
      * 
      * @param c
      * @param imgs
@@ -45,9 +43,8 @@ public abstract class Jewel {
     }
 
     /**
-     * Retrieves the subimage from the spritesheet based on the
-     * specified x,y,w, and h of bounding rectangle of the subimage
-     * Each Jewel has its own bounding rectangle
+     * Retrieves the subimage from the spritesheet based on the specified x,y,w, and h of bounding
+     * rectangle of the subimage Each Jewel has its own bounding rectangle
      * 
      * @param x x-coord of upper-lefthand corner of bounding rectangle
      * @param y y-coord of upper-lefthand corner of bounding rectangle
@@ -57,13 +54,13 @@ public abstract class Jewel {
      */
     protected static Image openImageFromSpriteSheet(int x, int y, int w, int h) {
         openSpriteSheet();
-        return ((BufferedImage) spriteSheet).getSubimage(x, y, w, h).getScaledInstance(SQUARE_SIZE, SQUARE_SIZE,
-                BufferedImage.SCALE_SMOOTH);
+        return ((BufferedImage) spriteSheet).getSubimage(x, y, w, h).getScaledInstance(SQUARE_SIZE,
+                SQUARE_SIZE, BufferedImage.SCALE_SMOOTH);
     }
 
     /**
-     * Opens the spritesheet if it hasn't already been opened. This spritesheet
-     * will be shared by all Jewels
+     * Opens the spritesheet if it hasn't already been opened. This spritesheet will be shared by
+     * all Jewels
      */
     private static void openSpriteSheet() {
         if (spriteSheet == null) {
@@ -77,17 +74,18 @@ public abstract class Jewel {
     }
 
     public void draw(Graphics g, int row, int col) {
-        g.drawImage(images[animationIterations % ANIMATION_FRAMES], col * Jewel.SQUARE_SIZE + BejeweledGrid.OFFSET_X,
+        g.drawImage(images[animationIterations % ANIMATION_FRAMES],
+                col * Jewel.SQUARE_SIZE + BejeweledGrid.OFFSET_X,
                 row * Jewel.SQUARE_SIZE + BejeweledGrid.OFFSET_Y, null);
 
     }
 
     @Override
     /**
-     * @return true if this Jewel has the same Color as the
-     *         specified Object (assuming non-null Jewel).
-     * @param You must verify that the specified Object is not
-     *            null and that it is a Jewel. Look up how to do this.
+     * @return true if this Jewel has the same Color as the specified Object (assuming non-null
+     *         Jewel).
+     * @param You must verify that the specified Object is not null and that it is a Jewel. Look up
+     *        how to do this.
      */
     public boolean equals(Object obj) {
         Jewel compared = (Jewel) obj;

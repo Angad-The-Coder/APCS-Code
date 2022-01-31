@@ -2,11 +2,8 @@ import java.awt.Color;
 import java.awt.Image;
 
 public class White extends Jewel {
-    static Image whiteImage;// shared by all Emeralds
+    static Image whiteImage;
 
-    // I found the locations below by a little bit of guess and
-    // check to find a rectangle that bounded the image of the
-    // Emerald.
     static final int X = 0, Y = 104, W = 52, H = 52;
 
     public White() {
@@ -21,11 +18,5 @@ public class White extends Jewel {
         }
         return imgs;
     }
-
-    // private static Image getImage() {
-    // if (whiteImage == null)// haven't opened the emerald image yet
-    // whiteImage = openImageFromSpriteSheet(X, Y, W, H);
-    // return whiteImage;
-    // }
 
 }
